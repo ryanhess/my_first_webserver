@@ -2,8 +2,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 
-hostName = "localhost"
-serverPort = 8080
+hostName = "0.0.0.0"
+serverPort = 10000
 
 class MyServer(BaseHTTPRequestHandler):
     def do_HEAD(self):
@@ -15,7 +15,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<body>", "utf-8"))
         self.wfile.write(bytes("<p>Hello universe.</p>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
-        
+
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
